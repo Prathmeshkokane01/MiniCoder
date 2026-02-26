@@ -1,0 +1,235 @@
+/* Global Styles */
+body {
+    font-family: 'Fredoka One', cursive; /* Fun, kid-friendly font (Google Fonts recommended) */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); /* Yellow to Orange gradient */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px; /* Large, readable for kids */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+}
+
+.toggle-password:hover {
+    color: #000;
+}
+
+.site-logo {
+    width: 150px;              /* 👈 clean & compact */
+    height: auto;
+    margin: 0 auto 12px;      /* space below logo */
+    display: block;
+    border-radius: 30%;       /* keeps it neat if logo is circular */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); /* soft shadow */
+}
+
+/* Cartoon Characters */
+.character {
+    position: fixed; /* Fixed for sides, relative for header */
+    z-index: 1;
+}
+
+.left-character {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right-character {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-character {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    z-index: 2;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #FFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+    font-size: 1.2em;
+    color: #FFF;
+    margin: 10px 0;
+}
+
+/* Container and Card */
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.card {
+    background: #FFF;
+    border-radius: 20px; /* Rounded */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 30px;
+    text-align: center;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px;
+    background: #E0E0E0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tab.active {
+    background: #FFD700; /* Yellow accent */
+    color: #333;
+}
+
+.tab:hover {
+    transform: scale(1.05); /* Hover animation */
+    background: #FFA500; /* Orange on hover */
+}
+
+/* Forms */
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #DDD;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Focus effect */
+}
+
+input:focus, select:focus {
+    border-color: #FFD700; /* Yellow focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.error {
+    color: #E74C3C; /* Friendly red for errors */
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px; /* Rounded */
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.register-btn {
+    background: #FFD700; /* Yellow */
+    color: #333;
+}
+
+.register-btn:hover {
+    background: #FFA500; /* Orange */
+    transform: scale(1.05);
+}
+
+.login-btn {
+    background: #FFA500; /* Orange */
+    color: #FFF;
+}
+
+.login-btn:hover {
+    background: #FFD700; /* Yellow */
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .left-character, .right-character {
+        display: none; /* Hide side characters on mobile */
+    }
+    .header h1 {
+        font-size: 2em;
+    }
+    .header p {
+        font-size: 1em;
+    }
+    .card {
+        padding: 20px;
+    }
+    .tabs {
+        flex-direction: column;
+    }
+    .tab {
+        margin-bottom: 10px;
+    }
+}
