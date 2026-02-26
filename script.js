@@ -73,3 +73,5 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
         alert('Form has errors! Fix them to proceed.'); // Temporary alert for demo; remove when connecting backend
     }
 });
+
+console.log('hello')
