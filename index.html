@@ -3,136 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Adventure - Login & Register</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
+    <title>MiniCoder - Learn Coding with Heroes</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Cartoon Characters (Positioned via CSS) -->
-    <div class="character left-character">
-        <!-- Fun Computer Character -->
-        <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="40" width="80" height="60" rx="10" fill="#FFD700" stroke="#FFA500" stroke-width="3"/>
-            <rect x="30" y="50" width="60" height="40" fill="#000" rx="5"/>
-            <text x="60" y="75" text-anchor="middle" fill="#FFF" font-size="10" font-family="Arial">Code!</text>
-            <circle cx="60" cy="30" r="15" fill="#FFA500"/>
-            <circle cx="50" cy="25" r="3" fill="#000"/>
-            <circle cx="70" cy="25" r="3" fill="#000"/>
-            <path d="M55 35 Q60 40 65 35" stroke="#000" stroke-width="2" fill="none"/>
-        </svg>
-    </div>
-    <div class="character right-character">
-        <!-- Lightbulb with Gears -->
-        <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <path d="M60 20 L50 50 L70 50 Z" fill="#FFD700"/>
-            <circle cx="60" cy="60" r="20" fill="#FFA500"/>
-            <circle cx="50" cy="55" r="5" fill="#FFF"/>
-            <circle cx="70" cy="55" r="5" fill="#FFF"/>
-            <circle cx="60" cy="65" r="5" fill="#FFF"/>
-            <path d="M40 80 L80 80 L75 100 L45 100 Z" fill="#FFD700"/>
-            <circle cx="45" cy="90" r="3" fill="#FFA500"/>
-            <circle cx="75" cy="90" r="3" fill="#FFA500"/>
-        </svg>
-    </div>
+    <div class="area"><ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
 
-    <!-- Header Section -->
-    <header class="header">
-    <div class="header-content">
+    <header class="header slide-down">
+        <img src="logo.jpeg" class="site-logo" alt="MiniCoder Logo">
+        <h1 class="glow-text">MiniCoder</h1>
+        <p class="subtitle">Master the Code with Mahabharata Heroes</p>
+    </header>
 
-        <!-- LOGO -->
-<img src="logo.jpeg" alt="Code Adventure Logo" class="site-logo">
-
-        <h1>Welcome to Code Adventure! <i class="fas fa-rocket"></i></h1>
-        <p>Ready to code? Let’s start coding fun!</p>
-
-    </div>
-</header>
-
-
-    <!-- Main Card -->
-    <div class="container">
-        <div class="card">
-            <!-- Tabs -->
-            <div class="tabs">
-                <button id="register-tab" class="tab active">Register <i class="fas fa-user-plus"></i></button>
-                <button id="login-tab" class="tab">Login <i class="fas fa-sign-in-alt"></i></button>
+    <div class="container" id="authPage">
+        <div class="glass-card bounce-in">
+            <div class="tabs-modern">
+                <button class="tab-m active" id="regTab" onclick="showRegister()">Register</button>
+                <button class="tab-m" id="logTab" onclick="showLogin()">Login</button>
             </div>
-
-            <!-- Register Form -->
-            <form id="register-form" class="form active">
-                <h2>Join the Fun! <i class="fas fa-smile"></i></h2>
-                <div class="input-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                    <span class="error" id="name-error"></span>
-                </div>
-                <div class="input-group">
-                    <label for="age">Age</label>
-                    <select id="age" name="age" required>
-                        <option value="">Pick Your Age</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
+            <form id="registerForm" class="auth-form">
+                <h2>Warrior Registration</h2>
+                <div class="input-group"><i class="fa-solid fa-user"></i><input type="text" placeholder="Full Name"></div>
+                <div class="input-group"><i class="fa-solid fa-graduation-cap"></i>
+                    <select id="gradeSelect">
+                        <option value="" disabled selected>Select Grade</option>
+                        <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
                     </select>
-                    <span class="error" id="age-error"></span>
                 </div>
-                <div class="input-group">
-                    <label for="Nickname/Username">Nickname/Username</label>
-                    <input type="text" id="username" name="username" required>
-                    <span class="error" id="username-error"></span>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-<div class="password-wrapper">
-    <input type="password" id="password" name="password" required>
-    <i class="fas fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
-</div>
-                    <span class="error" id="password-error"></span>
-                </div>
-                <div class="input-group">
-                    <label>
-                        <input type="checkbox" id="parent-checkbox"> I am a Parent / Guardian (optional)
-                    </label>
-                </div>
-                <div id="parent-section" class="hidden">
-                    <div class="input-group">
-                        <label for="parent-email">Parent Email</label>
-                        <input type="email" id="parent-email" name="parent-email">
-                        <span class="error" id="parent-email-error"></span>
-                    </div>
-                    <div class="input-group">
-                        <label for="parent-password">Parent Password</label>
-<div class="password-wrapper">
-    <input type="password" id="parent-password" name="parent-password">
-    <i class="fas fa-eye toggle-password" onclick="togglePassword('parent-password', this)"></i>
-</div>
-                        <span class="error" id="parent-password-error"></span>
-                    </div>
-                </div>
-                <button type="submit" class="btn register-btn">Sign Up <i class="fas fa-arrow-right"></i></button>
+                <div class="input-group"><i class="fa-solid fa-at"></i><input type="text" placeholder="Username"></div>
+                <div class="input-group"><i class="fa-solid fa-lock"></i><input type="password" id="regPass" placeholder="Password"><i class="fa-solid fa-eye toggle-eye" onclick="togglePassword('regPass')"></i></div>
+                <button type="button" class="btn-royal" onclick="showLogin()">Register Now</button>
             </form>
+            <form id="loginForm" class="auth-form" style="display:none">
+                <h2>Warrior Login</h2>
+                <div class="input-group"><i class="fa-solid fa-user-check"></i><input id="user" placeholder="Username (coder)"></div>
+                <div class="input-group"><i class="fa-solid fa-shield-halved"></i><input id="pass" type="password" placeholder="Password (1234)"><i class="fa-solid fa-eye toggle-eye" onclick="togglePassword('pass')"></i></div>
+                <button type="button" class="btn-royal" onclick="login(event)">Enter Arena</button>
+                <p class="demo">Demo: <b>coder</b> / <b>1234</b></p>
+            </form>
+        </div>
+    </div>
 
-            <!-- Login Form -->
-            <form id="login-form" class="form">
-                <h2>Welcome Back! <i class="fas fa-heart"></i></h2>
-                <div class="input-group">
-                    <label for="login-username">Username or Email</label>
-                    <input type="text" id="login-username" name="login-username" required>
-                    <span class="error" id="login-error"></span>
-                </div>
-                <div class="input-group">
-                    <label for="login-password">Password</label>
-<div class="password-wrapper">
-    <input type="password" id="login-password" name="login-password" required>
-    <i class="fas fa-eye toggle-password" onclick="togglePassword('login-password', this)"></i>
-</div>
-                </div>
-                <button type="submit" class="btn login-btn">Log In <i class="fas fa-arrow-right"></i></button>
-            </form>
+    <div id="teamPage" class="hidden">
+        <h2 class="slide-down section-title">Select Your Commander</h2>
+        <div class="teamContainer">
+            <div class="teamCard bounce-in" onclick="selectTeam('karan')"><img src="karan.png" alt="Karna"><h3>Karan Team</h3></div>
+            <div class="teamCard bounce-in" onclick="selectTeam('arjun')"><img src="arjun.png" alt="Arjuna"><h3>Arjun Team</h3></div>
+        </div>
+    </div>
+
+    <div id="difficultyPage" class="hidden">
+        <h2 class="slide-down section-title">Choose Difficulty Level</h2>
+        <div class="difficultyContainer">
+            <div class="diffCard bounce-in" onclick="selectDifficulty('Easy')"><i class="fa-solid fa-leaf"></i><h3>Easy</h3></div>
+            <div class="diffCard bounce-in" onclick="selectDifficulty('Moderate')"><i class="fa-solid fa-bolt"></i><h3>Moderate</h3></div>
+            <div class="diffCard bounce-in" onclick="selectDifficulty('High')"><i class="fa-solid fa-fire"></i><h3>High</h3></div>
+        </div>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <div class="teamIndicator"><img id="teamLogo" src="" alt="Team"><div id="diffTag">Level</div></div>
+        <h2 class="slide-down section-title">Home Mission Hub</h2>
+        <div class="menu">
+            <div class="menuCard" onclick="startLearning()"><i class="fa-solid fa-book"></i><br>Learn the Code</div>
+            <div class="menuCard"><i class="fa-solid fa-gamepad"></i><br>MCQ Game</div>
+            <div class="menuCard" onclick="startWriteCode()"><i class="fa-solid fa-code"></i><br>Write the Code</div>
+        </div>
+    </div>
+
+    <div id="learningPage" class="hidden">
+        <div class="header-mini">
+            <button class="btn-back-modern" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Exit Lesson</button>
+            <h2 class="section-title">Learn Python with Hanuman</h2>
+        </div>
+        <div class="learning-scene">
+            <img id="hanumanImg" src="hanuman.png">
+            <div id="learningContentBox"></div>
+        </div>
+        <div class="controls-learning">
+            <button class="nav-btn" onclick="prevTopic()">⬅</button>
+            <button class="nav-btn" onclick="nextTopic()">➡</button>
+        </div>
+    </div>
+
+    <div id="editorPage" class="hidden">
+        <div class="header-mini">
+            <button class="btn-back-modern" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Exit Mission</button>
+            <h2 id="missionTitle">Mission Console</h2>
+        </div>
+        <div class="editor-container bounce-in">
+            <div class="mission-status"><span id="difficultyLabel">Difficulty: Easy</span> | <span id="questionNum">1/10</span></div>
+            <div class="instructions"><h3 id="questTitle">Task Title</h3><p id="objectiveText">Loading...</p></div>
+            <div class="code-area"><div class="line-numbers">1<br>2<br>3<br>4<br>5</div><textarea id="codeEditor" spellcheck="false" placeholder="# Write Python code here..."></textarea></div>
+            <button class="btn-royal" onclick="evaluateCode()">Execute Code <i class="fa-solid fa-play"></i></button>
+            <div id="outputConsole" class="console">>_ Waiting for input...</div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal hidden">
+        <div class="modal-content bounce-in">
+            <h2 id="modalTitle">Victory!</h2>
+            <p id="modalDesc"></p>
+            <button class="btn-royal" onclick="closeModal()">Next Mission</button>
+        </div>
+    </div>
+
+    <div id="hintModal" class="modal hidden">
+        <div class="modal-content bounce-in hint-style">
+            <h2 style="color: #ff4d4d;"><i class="fa-solid fa-lightbulb"></i> Divine Hint</h2>
+            <p id="hintText"></p>
+            <div id="techInfo" class="tech-tag"></div>
+            <button class="btn-royal" onclick="closeHint()">Try Again</button>
         </div>
     </div>
 
